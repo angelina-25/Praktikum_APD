@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="FLOWCHART"/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-09 05:09:14 PM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtNzc1SEtRMFM7MjAyNC0wOS0wOTsxMjoxNDoxMCBQTTsyNjI2"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtNzc1SEtRMFM7MjAyNC0wOS0wOTswNTowOToxNCBQTTszOzI3NDY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Harga, Pengunjung, Total, UmurA, UmurB, UmurC, DiskonA, DiskonB, DiskonC, DiskonUmurA, Umur, DiskonUmurB, DiskonUmurC, TotalDiskon" type="Integer" array="False" size=""/>
+            <assign variable="Harga" expression="60000"/>
+            <input variable="Pengunjung"/>
+            <assign variable="Total" expression="Pengunjung*Harga"/>
+            <if expression="Pengunjung&lt;3">
+                <then>
+                    <output expression="Total" newline="True"/>
+                </then>
+                <else>
+                    <input variable="UmurA"/>
+                    <input variable="UmurB"/>
+                    <input variable="UmurC"/>
+                    <if expression="UmurA=UmurB Or UmurA=UmurC Or UmurB=UmurC">
+                        <then>
+                            <output expression="Total" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="UmurA&lt;18">
+                                <then>
+                                    <assign variable="DiskonUmurA" expression="Harga*0.2"/>
+                                </then>
+                                <else>
+                                    <if expression="UmurB&gt;=18 and UmurA&lt;=25">
+                                        <then>
+                                            <assign variable="DiskonUmurA" expression="Harga*0.15"/>
+                                        </then>
+                                        <else>
+                                            <if expression="Umur&gt;25">
+                                                <then>
+                                                    <assign variable="DiskonUmurA" expression="Harga*0.1"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                            <if expression="UmurB&gt;=18 and UmurA&lt;=25">
+                                <then>
+                                    <assign variable="DiskonUmurB" expression="Harga*0.15"/>
+                                </then>
+                                <else>
+                                    <if expression="UmurB&lt;18">
+                                        <then>
+                                            <assign variable="DiskonUmurB" expression="Harga*0.2"/>
+                                        </then>
+                                        <else>
+                                            <if expression="Umur&gt;25">
+                                                <then>
+                                                    <assign variable="DiskonUmurB" expression="Harga*0.1"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                            <if expression="UmurC&gt;25">
+                                <then>
+                                    <assign variable="DiskonUmurC" expression="Harga*0.1"/>
+                                </then>
+                                <else>
+                                    <if expression="UmurB&gt;=18 and UmurA&lt;=25">
+                                        <then>
+                                            <assign variable="DiskonUmurC" expression="Harga*0.15"/>
+                                        </then>
+                                        <else>
+                                            <if expression="UmurA&lt;18">
+                                                <then>
+                                                    <assign variable="DiskonUmurC" expression="Harga*0.20"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <assign variable="TotalDiskon" expression="DiskonUmurA+DiskonUmurb+DiskonUmurC"/>
+                    <assign variable="Total" expression="Total-TotalDiskon"/>
+                    <output expression="&quot;Total Harga Adalah: &quot;" newline="True"/>
+                    <output expression="Total" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

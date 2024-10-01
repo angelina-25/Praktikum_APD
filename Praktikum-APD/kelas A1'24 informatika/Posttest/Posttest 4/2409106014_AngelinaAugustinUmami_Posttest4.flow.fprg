@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="2409106014_AngelinaAugustinUmami"/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-30 05:56:47 PM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtNzc1SEtRMFM7MjAyNC0wOS0zMDsxMjoxNzoxMyBBTTsyNjEx"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtNzc1SEtRMFM7MjAyNC0wOS0zMDswNTo1Njo0NyBQTTsyMzsyNzk4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Nama, jeniskelamin, lagi, pilihan, Username" type="String" array="False" size=""/>
+            <declare name="salah, Password, pw, bmr, tdee, gagal, umur, berat, tinggi, tinggiKm, beratGram" type="Integer" array="False" size=""/>
+            <output expression="&quot;Buat username anda&quot;" newline="True"/>
+            <input variable="Nama"/>
+            <output expression="&quot;Buat password anda berupa 3 angka nim terakhir&quot;" newline="True"/>
+            <input variable="Password"/>
+            <assign variable="gagal" expression="0"/>
+            <assign variable="salah" expression="0"/>
+            <while expression="salah == 0">
+                <output expression="&quot;Masukkan username anda&quot;" newline="True"/>
+                <input variable="Username"/>
+                <output expression="&quot;Masukkan password anda&quot;" newline="True"/>
+                <input variable="pw"/>
+                <if expression="nama==username and pw==password">
+                    <then>
+                        <output expression="&quot;Selamat datang gess&quot;" newline="True"/>
+                        <while expression="salah == 0">
+                            <output expression="&quot;pilih jenis kelamin, 1.pria, 2.wanita&quot;" newline="True"/>
+                            <input variable="jeniskelamin"/>
+                            <output expression="&quot;Masukkan berat badan dalam kg&quot;" newline="True"/>
+                            <input variable="berat"/>
+                            <output expression="&quot;Masukkan tinggi dalam cm&quot;" newline="True"/>
+                            <input variable="tinggi"/>
+                            <output expression="&quot;Masukkan umur dalam tahun&quot;" newline="True"/>
+                            <input variable="umur"/>
+                            <if expression="jeniskelamin == &quot;1&quot;">
+                                <then>
+                                    <assign variable="bmr" expression="(10 * berat ) + (6.25 * tinggi) - (5 * umur) + 5"/>
+                                </then>
+                                <else>
+                                    <if expression="jeniskelamin == &quot;2&quot;">
+                                        <then>
+                                            <assign variable="bmr" expression="(10 * berat) + (6.25 * tinggi) - (5 * umur) - 161"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;jenis kelamin tidak valid&quot;" newline="True"/>
+                                            <assign variable="salah" expression="4"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                            <output expression="&quot;level aktivitas harian&quot;" newline="True"/>
+                            <output expression="&quot;1. Aktivitas Minimal (jarang bergerak)&quot;" newline="True"/>
+                            <output expression="&quot;2. Aktivitas Sedang (olahraga 1-3 kali seminggu)&quot;" newline="True"/>
+                            <output expression="&quot;3. Aktivitas Tinggi (olahraga 4-7 kali seminggu)&quot;" newline="True"/>
+                            <output expression="&quot;Pilihan (1/2/3): &quot;" newline="True"/>
+                            <input variable="pilihan"/>
+                            <if expression="pilihan == &quot;1&quot;">
+                                <then>
+                                    <assign variable="tdee" expression="bmr * 1.25"/>
+                                    <output expression="&quot;Kebutuhan Kalori Harian (TDEE) Anda adalah &quot;&amp; tdee" newline="True"/>
+                                    <output expression="&quot;apakah anda ingin mencoba lagi? (iya/tidak): &quot;" newline="True"/>
+                                    <input variable="lagi"/>
+                                    <if expression="lagi != &quot;iya&quot;">
+                                        <then>
+                                            <assign variable="salah" expression="6"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="pilihan == &quot;2&quot;">
+                                        <then>
+                                            <assign variable="tdee" expression="bmr * 1.36"/>
+                                            <output expression="&quot;Kebutuhan Kalori Harian (TDEE) Anda adalah &quot;&amp; tdee" newline="True"/>
+                                            <output expression="&quot;apakah anda ingin mencoba lagi? (iya/tidak): &quot;" newline="True"/>
+                                            <input variable="lagi"/>
+                                            <if expression="lagi != &quot;iya&quot;">
+                                                <then>
+                                                    <assign variable="salah" expression="6"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="pilihan == &quot;3&quot;">
+                                                <then>
+                                                    <assign variable="tdee" expression="bmr * 1.72"/>
+                                                    <output expression="&quot;Kebutuhan Kalori Harian (TDEE) Anda adalah &quot;&amp; tdee" newline="True"/>
+                                                    <output expression="&quot;apakah anda ingin mencoba lagi? (iya/tidak): &quot;" newline="True"/>
+                                                    <input variable="lagi"/>
+                                                    <if expression="lagi != &quot;iya&quot;">
+                                                        <then>
+                                                            <assign variable="salah" expression="6"/>
+                                                        </then>
+                                                        <else/>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <output expression="&quot;pilihan tidak valid&quot;" newline="True"/>
+                                                    <assign variable="salah" expression="4"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </while>
+                    </then>
+                    <else>
+                        <output expression="&quot;gagal login&quot;" newline="True"/>
+                        <assign variable="gagal" expression="gagal+1"/>
+                        <if expression="gagal==3">
+                            <then>
+                                <output expression="&quot;gagal login 3 kali, program di hentikan&quot;" newline="True"/>
+                                <assign variable="salah" expression="5"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </while>
+            <if expression="salah == 5">
+                <then>
+                    <output expression="&quot;invalid&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="salah == 6">
+                        <then>
+                            <output expression="&quot;program telah selesai&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
